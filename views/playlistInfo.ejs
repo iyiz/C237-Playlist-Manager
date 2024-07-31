@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= playlist.title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <%= include navbar %>
+        </div>
+        <div class="main-content">
+            <h1><%= playlist.title %></h1>
+            <p><%= playlist.description %></p>
+            <h2>Videos</h2>
+            <ul>
+                <% videos.forEach(video => { %>
+                    <li>
+                        <a href="/videos/<%= video.id %>"><%= video.title %></a>
+                        <form action="/videos/<%= video.id %>/delete" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

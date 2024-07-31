@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playlists</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a href="/">Home</a>
+            <a href="/playlists">Playlists</a>
+            <a href="/addPlaylistForm">Add Playlist</a>
+            <a href="/addVideoForm">Add Video</a>
+        </div>
+        <div class="main-content">
+            <h1>Playlists</h1>
+            <ul>
+                <% playlists.forEach(playlist => { %>
+                    <li>
+                        <a href="/playlists/<%= playlist.id %>"><%= playlist.title %></a>
+                        <form action="/playlists/<%= playlist.id %>/delete" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>                        
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
