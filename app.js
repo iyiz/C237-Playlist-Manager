@@ -13,10 +13,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MySQL connection
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'playlist_manager_db'
+  // host: 'localhost',
+  // user: 'root',
+  // password: '',
+  // database: 'playlist_manager_db'
+  host: 'sql.freedb.tech',
+  user: 'freedb_c237playlistmanager',
+  password: '$TzTv5&vE4!8HzT',
+  database: 'freedb_playlist_manager_db'
 });
 
 connection.connect(err => {
